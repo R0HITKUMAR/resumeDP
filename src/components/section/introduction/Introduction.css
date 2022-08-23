@@ -1,0 +1,112 @@
+#introduction .box-info {
+  padding-left: 0rem !important;
+  margin-top: 20px;
+  overflow: scroll;
+}
+#introduction .box-info div {
+  padding: 10px;
+  background: var(--light);
+  border-radius: 20px;
+  align-items: center;
+}
+
+#introduction .intro .box-info .box-info-head {
+  border-bottom: 2px solid var(--dark);
+}
+
+#introduction .intro .box-info .box-info-head p {
+  display: flex;
+}
+
+#introduction .box-info div h1 {
+  font-weight: 600;
+  margin-bottom: 0px;
+  color: var(--dark);
+  font-family: var(--lato);
+}
+
+#introduction .box-info div p {
+  font-weight: bold;
+  font-family: var(--lato);
+  color: var(--dark);
+  line-height: normal;
+  margin-bottom: 0px;
+}
+
+#introduction .box-info div h5 {
+  font-weight: bold;
+  font-family: var(--lato);
+  color: var(--dark);
+  line-height: normal;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+#introduction .blocked input, #introduction .blocked textarea {
+  pointer-events: none;
+
+}
+
+#introduction input,
+#introduction textarea,
+#introduction input:focus,
+#introduction textarea:focus {
+  outline: none;
+  border: 0px;
+  color: inherit;
+  background: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-align: center;
+}
+#introduction input::placeholder,
+#introduction textarea::placeholder {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+#introduction input[name="position"] {
+  width: 50%;
+}
+
+#introduction textarea[name="careerObjective"] {
+  width: 100%;
+  height: 40px;
+}
+
+#introduction .box-info .box-info-body .social-link {
+  color: var(--dark);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}
+#introduction .box-info .box-info-body .social-link div {
+  padding: 0px;
+  padding-bottom: 5px;
+}
+#introduction .box-info .box-info-body .social-link div input:nth-child(1) {
+  width: 30%;
+  text-align: left;
+}
+#introduction .box-info .box-info-body .social-link div input:nth-child(2) {
+  width: 70%;
+  text-align: right;
+}
+
+#introduction .box-info-footer button {
+  float: right;
+  background: none;
+  color: var(--dark);
+  border: 0px;
+  margin: 5px;
+}
+
+#introduction .resume .resume-archive {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}

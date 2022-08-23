@@ -1,0 +1,49 @@
+#home .box-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 20px;
+  padding-left: 0rem !important;
+  margin-top: 20px;
+}
+
+#home .box-info li {
+  padding: 20px;
+  background: var(--light);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+}
+#home .box-info li .fa {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#home .box-info li:nth-child(1) .fa {
+  background: var(--light-blue);
+  color: var(--blue);
+}
+#home .box-info li:nth-child(2) .fa {
+  background: var(--light-yellow);
+  color: var(--yellow);
+}
+#home .box-info li:nth-child(3) .fa {
+  background: var(--light-orange);
+  color: var(--orange);
+}
+#home .box-info li:nth-child(4) .fa {
+  background: var(--red);
+  color: var(--light);
+}
+#home .box-info li .text h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+}
+#home .box-info li .text p {
+  color: var(--dark);
+}

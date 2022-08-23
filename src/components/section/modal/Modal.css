@@ -1,0 +1,26 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+}
+
+.modal-content {
+  padding: 0px;
+  background: var(--light);
+  border-radius: 20px;
+  display: flex;
+  color: var(--dark);
+}
+
+.modal-header{
+  padding: 10px 0px;
+  align-items: center;
+  justify-content: none;
+}
+
+.modal-body{
+  padding: 0px 0px;
+}
+
+.modal i{
+  color: var(--dark);
+}

@@ -1,0 +1,39 @@
+#skills .box-info {
+  padding-left: 0rem !important;
+  margin-top: 20px;
+  overflow: scroll;
+}
+#skills .box-info div {
+  padding: 10px;
+  background: var(--light);
+  border-radius: 20px;
+  align-items: center;
+}
+
+#skills .box-info .box-info-head h5 {
+  display: inline;
+  font-weight: 600;
+  color: var(--dark);
+  padding-left: 20px;
+}
+
+#skills .box-info-body h6{
+  font-weight: 400;
+  color: var(--dark);
+  text-align: center;
+  
+}
+
+#skills textarea, textarea:focus{
+  outline: none;
+  border: 0px;
+  color: var(--dark);
+  background: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  width: 100%;
+}
+
+#skills .box-info-footer button{
+    float: right;
+}

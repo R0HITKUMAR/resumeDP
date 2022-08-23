@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@0;1&display=swap");
+
+/* Certifications + Achievements */
+/* Skills + Language Known + Hobbies + ExtraCurricular */
+
+/* Main Styling */
+#resume {
+  width: 210mm;
+  margin: 0px !important;
+  padding: 30px 0px 15px 15px !important;
+  color: var(--dark);
+}
+
+#resume .resume-container .resume-body .resume-item h6 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+  color: #004aad;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 3.4px solid #004aad;
+}
+#resume .resume-container .badge {
+  margin-right: 2px;
+  background-color: #004aad !important;
+  color: #fff !important;
+}
+#resume .resume-container ul li {
+  font-family: "Source Sans Pro", sans-serif;
+  list-style-type: disc !important;
+  font-size: small;
+  margin-bottom: 0px;
+}
+
+/* Introduction */
+#resume .resume-container .resume-header {
+  border-bottom: 2px dotted #004aad;
+}
+
+#resume .resume-container .resume-header h5 {
+  font-family: "Ubuntu", sans-serif;
+  color: #004aad;
+  font-size: 3rem;
+  margin-bottom: 0px;
+}
+
+#resume .resume-container .resume-header h6 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #004aad;
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+
+#resume .resume-container .resume-header p {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+}
+
+/* Education */
+#resume .resume-container .resume-body .education {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: small;
+  color: var(--dark);
+}
+#resume .resume-container .resume-body .education .education-title {
+  font-weight: 600;
+}
+
+/* Projects */
+#resume .resume-container .resume-body .projects .project-item {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: small;
+}
+#resume .resume-container .resume-body .projects .project-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#resume .resume-container .resume-body .projects .project-technology {
+  font-size: small;
+  font-style: italic;
+}
+#resume .resume-container .resume-body .projects .about-project li {
+  padding: 0px inherit;
+  line-height: normal;
+  font-size: small;
+}
+
+/* Links */
+#resume .resume-container .resume-body .links .link-item {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: small;
+  position: relative;
+}
+#resume .resume-container .resume-body .links .link-item .link-name {
+  font-weight: 600;
+}
+
+#resume .resume-container .resume-body .experiences {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: small;
+  color: var(--dark);
+}
+
+.footer h6 {
+  border-bottom: none !important;
+  text-align: end;
+  font-size: 1rem !important;
+}
+
+.k-pdf-export #resume {
+  width: 210mm;
+  margin: 0px !important;
+  padding: 30px 0px 15px 15px !important;
+  color: var(--dark);
+}
+
+kendo-pdf-document #resume .resume-container .resume-body .resume-item h6 {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+  color: #004aad;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-bottom: 3.4px solid #004aad;
+}

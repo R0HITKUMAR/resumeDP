@@ -1,0 +1,86 @@
+#projects .box-info {
+  padding-left: 0rem !important;
+  margin-top: 20px;
+  overflow: scroll;
+}
+#projects .box-info div {
+  padding: 10px;
+  background: var(--light);
+  border-radius: 20px;
+  align-items: center;
+}
+
+#projects .box-info .box-info-head h5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+}
+#projects .box-info .box-info-head p {
+  margin-bottom: 0px;
+  float: right;
+  font-size: 14px;
+  color: var(--dark);
+}
+
+#projects .box-info .box-info-body p {
+  margin-bottom: 0px;
+  color: var(--dark);
+  font-size: smaller;
+}
+#projects .box-info .box-info-body .badge {
+  margin-right: 5px;
+}
+#projects .box-info .box-info-body ul {
+  color: var(--dark);
+  font-size: smaller;
+}
+
+#projects .box-info .box-info-body li {
+  padding: 0px;
+  padding-left: 0px !important;
+}
+
+#projects .box-info .box-info-footer {
+  float: right;
+}
+#projects .box-info .box-info-footer .fa {
+  margin: 0px 5px;
+  color: var(--dark);
+}
+
+.box-info-footer button {
+  background: none;
+  color: var(--dark);
+  border: 0px;
+}
+
+#projects .project-form input,
+#projects .project-form textarea,
+#projects .project-form input:focus,
+#projects .project-form textarea:focus {
+  outline: none;
+  border: 0px;
+  color: inherit;
+  background: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+#projects .project-form input::placeholder,
+#projects .project-form textarea::placeholder {
+  color: inherit;
+}
+
+#projects .project-form h5 input,
+#projects .project-form li textarea,
+#projects .project-form .text-bg-warning input {
+  width: 100% !important;
+}
+
+input[name="url"] {
+  width: 100%;
+}
+
+#projects .project-form .text-bg-warning {
+  display: block;
+  width: 80%;
+}
