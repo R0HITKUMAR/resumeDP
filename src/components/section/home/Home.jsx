@@ -71,6 +71,17 @@ export default function Home(props) {
               <p></p>
             </span>
           </li>
+          <li>
+            <i className="fa fa-duotone fa-microchip" />
+            <span className="text">
+              <h3>Logged in As:</h3>
+              <p>
+                {props.userName}
+                <br />
+                {props.email}
+              </p>
+            </span>
+          </li>
         </ul>
       </div>
     </section>

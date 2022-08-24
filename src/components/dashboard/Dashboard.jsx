@@ -52,7 +52,7 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <Modal status={modal} setModal={setModal} />
+      <Modal status={modal} setModal={setModal} email={props.user.email}/>
       <Sidebar toggle={stoggle} logout={logout} mode={mode} />
       <section id="content">
         <Navbar
@@ -63,32 +63,41 @@ export default function Dashboard(props) {
         />
         <main>
           <Routes>
-            <Route exact path="/" element={<Home email={props.email} />} />
+            <Route
+              exact
+              path="/"
+              element={
+                <Home email={props.user.email} userName={props.user.userName} />
+              }
+            />
             <Route
               path="/intro/*"
-              element={<Introduction email={props.email} />}
+              element={<Introduction email={props.user.email} />}
             />
             <Route
               path="/education/*"
-              element={<Education email={props.email} />}
+              element={<Education email={props.user.email} />}
             />
             <Route
               path="/experience/*"
-              element={<Experience email={props.email} />}
+              element={<Experience email={props.user.email} />}
             />
             <Route
               path="/certifications/*"
-              element={<Certifications email={props.email} />}
+              element={<Certifications email={props.user.email} />}
             />
             <Route
               path="/projects/*"
-              element={<Projects email={props.email} />}
+              element={<Projects email={props.user.email} />}
             />
             <Route
               path="/achievements/*"
-              element={<Achievements email={props.email} />}
+              element={<Achievements email={props.user.email} />}
             />
-            <Route path="/skills/*" element={<Skills email={props.email} />} />
+            <Route
+              path="/skills/*"
+              element={<Skills email={props.user.email} />}
+            />
           </Routes>
         </main>
       </section>

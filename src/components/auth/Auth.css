@@ -100,13 +100,21 @@ a:focus {
 .main-form {
   width: 100%;
 }
+
 .form-group {
   position: relative;
-  margin-bottom: 25px;
   overflow: hidden;
 }
-.form-group:last-child {
-  margin-bottom: 0;
+
+.form-text{
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+#register .form-text {
+  margin-bottom: 20px;
 }
 
 .main-btn,

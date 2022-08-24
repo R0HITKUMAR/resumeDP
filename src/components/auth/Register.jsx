@@ -11,9 +11,9 @@ export default function Register() {
   const navigate = useNavigate();
   const [alert, setAlert] = React.useState("");
   const [checked, setChecked] = React.useState(false);
+  const [userNameValid, setUserNameValid] = React.useState(false);
   const [step, setStep] = React.useState(1);
   const [serverOTP, setserverOTP] = React.useState("");
-  const [flag, setFlag] = React.useState(false);
   const [User, setUser] = React.useState({
     userName: "",
     email: "",
@@ -32,26 +32,20 @@ export default function Register() {
     if (name === "email") {
       if (value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
         e.target.style.borderColor = "green";
-        setFlag(true);
       } else {
         e.target.style.borderColor = "red";
-        setFlag(false);
       }
     } else if (name === "password") {
-      if (value.length < 6) {
+      if (value.length >= 6) {
         e.target.style.borderColor = "red";
-        setFlag(false);
       } else {
         e.target.style.borderColor = "green";
-        setFlag(true);
       }
     } else if (name === "confirmPassword") {
       if (value !== User.password) {
         e.target.style.borderColor = "red";
-        setFlag(false);
       } else {
         e.target.style.borderColor = "green";
-        setFlag(true);
       }
     } else if (name === "userName") {
       axios
@@ -59,13 +53,13 @@ export default function Register() {
         .then((res) => {
           if (
             res.data.message !== "Username Already Exists" &&
-            value.length >= 6
+            value.length >= 6 &&
+            value.match(/^[a-zA-Z0-9]+$/)
           ) {
+            setUserNameValid(true);
             e.target.style.borderColor = "green";
-            setFlag(false);
           } else {
             e.target.style.borderColor = "red";
-            setFlag(true);
           }
         });
     }
@@ -73,31 +67,48 @@ export default function Register() {
 
   const sendVOTP = (e) => {
     e.preventDefault();
-    if (
-      User.userName &&
-      User.email &&
-      User.password &&
-      User.confirmPassword &&
-      flag
-    ) {
-      if (checked) {
-        axios
-          .post("https://resumedp.herokuapp.com/auth/sendVotp", User)
-          .then((res) => {
-            setAlert(res.data.message);
-            if (res.data.success) {
-              setserverOTP(res.data.otp);
-              setStep(2);
+    if (checked) {
+      if (
+        User.userName &&
+        User.email &&
+        User.password &&
+        User.confirmPassword
+      ) {
+        if (userNameValid) {
+          if (User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+            if (User.password.length >= 6) {
+              if (User.password === User.confirmPassword) {
+                axios
+                  .post("https://resumedp.herokuapp.com/auth/sendVotp", User)
+                  .then((res) => {
+                    setAlert(res.data.message);
+                    if (res.data.success) {
+                      setserverOTP(res.data.otp);
+                      setStep(2);
+                    }
+                  })
+                  .catch((err) => {
+                    setAlert(err.response.data.message);
+                  });
+              } else {
+                setAlert("Password and Confirm Password do not match");
+              }
+            } else {
+              setAlert("Password must be at least 6 characters long");
             }
-          })
-          .catch((err) => {
-            setAlert(err.response.data.message);
-          });
+          } else {
+            setAlert("Please Enter Valid Email");
+          }
+        } else {
+          setAlert(
+            "User Name must be at least 6 characters long and must contain only alphabets and numbers"
+          );
+        }
       } else {
-        setAlert("Please Accept the Terms and Conditions");
+        setAlert("Please fill all fields Correctly");
       }
     } else {
-      setAlert("Please fill all fields Correctly");
+      setAlert("Please Accept the Terms and Conditions");
     }
   };
 
@@ -168,6 +179,7 @@ export default function Register() {
                         placeholder="Enter User Name"
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-email" />
@@ -180,6 +192,7 @@ export default function Register() {
                         placeholder="Your Email"
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-lock" />
@@ -200,6 +213,7 @@ export default function Register() {
                         placeholder="Password"
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-lock-outline" />
@@ -219,6 +233,7 @@ export default function Register() {
                         placeholder="Repeat your password"
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <input
                         type="checkbox"

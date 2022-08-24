@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Resume.css";
 
-export default function Resume() {
-  const [email, setEmail] = React.useState("r.k2962002@gmail.com");
+export default function Resume(props) {
+  const navigate = useNavigate();
+  const [email, setEmail] = React.useState(props.email);
   const [Intro, setIntro] = React.useState([]);
   const [Education, setEducation] = React.useState([]);
   const [Projects, setProjects] = React.useState([]);
@@ -44,22 +46,22 @@ export default function Resume() {
     axios
       .get(`https://resumedp.herokuapp.com/experience/retrieveAll/${email}`)
       .then((res) => {
-        setExperience(res.data);  
+        setExperience(res.data);
       });
   }, [email]);
 
   return (
     <>
       {path !== "/resume" ? (
-        <a
-          href="/resume"
+        <button
           className="m-2"
           style={{ float: "right" }}
-          target="_blank"
-          rel="noopener"
+          onClick={() => {
+            navigate("/resume");
+          }}
         >
           <i class="fa-solid fa-print"></i>
-        </a>
+        </button>
       ) : (
         ""
       )}

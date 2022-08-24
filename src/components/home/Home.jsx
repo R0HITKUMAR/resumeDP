@@ -11,10 +11,16 @@ import Profile from "../profile/Profile";
 
 export default function Home() {
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState("");
+  const [user, setUser] = React.useState({
+    email: "",
+    userName: "",
+  });
 
-  const setUser = (email) => {
-    setEmail(email);
+  const setUserDetails = (email, userName) => {
+    setUser({
+      email: email,
+      userName: userName,
+    });
   };
 
   React.useEffect(() => {
@@ -24,7 +30,7 @@ export default function Home() {
       .get(`https://resumedp.herokuapp.com/auth/validate/${token}`)
       .then((res) => {
         if (res.data.isLogged) {
-          setUser(res.data.email);
+          setUserDetails(res.data.email, res.data.userName);
           if (
             path === "/" ||
             path === "/login" ||
@@ -54,11 +60,17 @@ export default function Home() {
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/home/*" element={email && <Dashboard email={email} />} />
-        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route
+          path="/home/*"
+          element={user.email && <Dashboard user={user} />}
+        />
+        <Route path="/login" element={<Login setUser={setUserDetails} />} />
         <Route path="/resetPassword" element={<Reset />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/resume" element={<Resume />} />
+        <Route
+          path="/resume"
+          element={user.email && <Resume email={user.email} />}
+        />
         <Route path="/user/:userName" element={<Profile />} />
       </Routes>
     </>

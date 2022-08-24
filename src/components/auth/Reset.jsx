@@ -11,7 +11,6 @@ export default function Reset() {
   const navigate = useNavigate();
   const [alert, setAlert] = React.useState("");
   const [step, setStep] = React.useState(1);
-  const [flag, setFlag] = React.useState(false);
   const [serverOTP, setserverOTP] = React.useState("");
   const [User, setUser] = React.useState({
     email: "",
@@ -29,25 +28,24 @@ export default function Reset() {
     if (name === "email") {
       if (value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
         e.target.style.borderColor = "green";
-        setFlag(true);
       } else {
         e.target.style.borderColor = "red";
-        setFlag(false);
       }
     } else if (name === "newpassword") {
       if (value.length < 6) {
         e.target.style.borderColor = "red";
-        setFlag(false);
       } else {
         e.target.style.borderColor = "green";
-        setFlag(true);
       }
     }
   };
 
   const sendOTP = (e) => {
     e.preventDefault();
-    if (User.email && flag) {
+    if (
+      User.email &&
+      User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+    ) {
       axios
         .post("https://resumedp.herokuapp.com/auth/sendotp", User)
         .then((res) => {
@@ -61,23 +59,23 @@ export default function Reset() {
           setAlert(err.response.data.message);
         });
     } else {
-      setAlert("Please fill all the fields Correctly");
+      setAlert("Enter a valid Email Address");
     }
   };
 
   function validateOTP(e) {
     e.preventDefault();
     if (User.otp === serverOTP) {
-      setAlert("OTP verified");
+      setAlert("OTP Verified Successfully");
       setStep(3);
     } else if (User.otp !== serverOTP) {
-      setAlert("Incorrect OTP");
+      setAlert("Please Enter a valid OTP");
     }
   }
 
   const changePassword = (e) => {
     e.preventDefault();
-    if (User.newpassword) {
+    if (User.newpassword && User.newpassword.length >= 6) {
       axios
         .post("https://resumedp.herokuapp.com/auth/changepassword", User)
         .then((res) => {
@@ -91,7 +89,7 @@ export default function Reset() {
           setAlert(err.response.data.message);
         });
     } else {
-      setAlert("Please Enter New Password");
+      setAlert("Please Enter a Valid New Password");
     }
   };
 
@@ -126,7 +124,7 @@ export default function Reset() {
                         placeholder="Email"
                       />
                     </div>
-
+                    <div className="form-text text-muted"></div>
                     <div className="form-button text-center">
                       <button onClick={sendOTP} className="main-btn">
                         Send OTP
@@ -149,6 +147,7 @@ export default function Reset() {
                         disabled={true}
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-lock" />
@@ -160,6 +159,9 @@ export default function Reset() {
                         value={User.otp}
                         placeholder="OTP"
                       />
+                    </div>
+                    <div className="form-text text-muted">
+                      Enter a valid OTP received on registered Email Address
                     </div>
                     <div className="form-button text-center">
                       <button className="main-btn" onClick={validateOTP}>
@@ -182,6 +184,7 @@ export default function Reset() {
                         placeholder="Email"
                       />
                     </div>
+                    <div class="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-lock" />
@@ -202,6 +205,10 @@ export default function Reset() {
                         placeholder="New Password"
                       />
                     </div>
+                    <div class="form-text text-muted">
+                      Your password must be at least 6 characters long.
+                    </div>
+
                     <div className="form-button text-center">
                       <button className="main-btn" onClick={changePassword}>
                         Change Password

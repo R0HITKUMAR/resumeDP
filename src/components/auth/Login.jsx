@@ -8,11 +8,10 @@ import img from "../../assets/img/login.svg";
 export default function Login(props) {
   const navigate = useNavigate();
   const [alert, setAlert] = React.useState("");
-  const [flag, setFlag] = React.useState(false);
   const [checkbox, setCheckbox] = React.useState(false);
   const [User, setUser] = React.useState({
-    email: localStorage.getItem("resumeDPE"),
-    password: localStorage.getItem("resumeDPP"),
+    email: localStorage.getItem("resumeDPE") || "",
+    password: localStorage.getItem("resumeDPP") || "",
   });
 
   const handleChange = (e) => {
@@ -25,25 +24,25 @@ export default function Login(props) {
     if (name === "email") {
       if (value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
         e.target.style.borderColor = "green";
-        setFlag(true);
       } else {
         e.target.style.borderColor = "red";
-        setFlag(false);
       }
     } else if (name === "password") {
       if (value.length < 6) {
         e.target.style.borderColor = "red";
-        setFlag(false);
       } else {
         e.target.style.borderColor = "green";
-        setFlag(true);
       }
     }
   };
 
   function Login(e) {
     e.preventDefault();
-    if (User.email && User.password && flag) {
+    if (
+      User.email &&
+      User.password &&
+      User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+    ) {
       axios
         .post("https://resumedp.herokuapp.com/auth/login", User)
         .then((res) => {
@@ -51,7 +50,7 @@ export default function Login(props) {
           if (res.data.message === "Logged In Successfully") {
             checkbox && localStorage.setItem("resumeDPE", User.email);
             checkbox && localStorage.setItem("resumeDPP", User.password);
-            props.setUser(res.data.email);
+            props.setUser(res.data.email, res.data.userName);
             setUser({
               email: "",
               password: "",
@@ -65,7 +64,7 @@ export default function Login(props) {
           setAlert(err.response.data.message);
         });
     } else {
-      setAlert("Please fill all fields Correctly!");
+      setAlert("All Fields are Required and Correctly!");
     }
   }
 
@@ -95,6 +94,7 @@ export default function Login(props) {
                     placeholder="Email"
                   />
                 </div>
+                <div className="form-text text-muted"></div>
                 <div className="form-group flex">
                   <label>
                     <i className="zmdi zmdi-lock" />
@@ -114,6 +114,7 @@ export default function Login(props) {
                     placeholder="Password"
                   />
                 </div>
+                <div className="form-text text-muted"></div>
                 <div className="form-group">
                   <input
                     type="checkbox"
