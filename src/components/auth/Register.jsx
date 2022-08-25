@@ -274,6 +274,7 @@ export default function Register() {
                         disabled={true}
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-email" />
@@ -287,6 +288,7 @@ export default function Register() {
                         disabled={true}
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-lock" />
@@ -299,6 +301,7 @@ export default function Register() {
                         placeholder="Enter OTP"
                       />
                     </div>
+                    <div className="form-text text-muted"></div>
                     <div className="form-button text-center">
                       <button onClick={validateOTP} className="main-btn">
                         Verify OTP
