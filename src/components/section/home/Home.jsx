@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./Home.css";
 
 export default function Home(props) {
+  const navigate = useNavigate();
   const [dashboard, setDashboard] = React.useState([]);
 
   React.useEffect(() => {
@@ -37,9 +39,12 @@ export default function Home(props) {
           <h1>Dashboard</h1>
         </div>
         <div className="right">
-          <a href="/" className="badge rounded-pill text-bg-primary">
+          <button
+            onClick={() => navigate("/resume")}
+            className="badge rounded-pill text-bg-primary"
+          >
             Download Latest Resume
-          </a>
+          </button>
         </div>
       </div>
       <div className="box">
@@ -68,7 +73,7 @@ export default function Home(props) {
             <i className="fa fa-duotone fa-microchip" />
             <span className="text">
               <h3>Recent Projects</h3>
-              <p></p>
+              <p>Coming Soon..</p>
             </span>
           </li>
           <li>

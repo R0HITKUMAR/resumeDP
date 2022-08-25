@@ -8,7 +8,9 @@ export default function CCard({ Certificate }) {
 
   const deleteCertificate = () => {
     axios
-      .delete(`https://resumedp.herokuapp.com/certificate/delete/${Certificate._id}`)
+      .delete(
+        `https://resumedp.herokuapp.com/certificate/delete/${Certificate._id}`
+      )
       .then((res) => {
         Toast.fire({
           icon: "success",
@@ -40,7 +42,7 @@ export default function CCard({ Certificate }) {
             <p>Issued By : {Certificate.issued_by}</p>
           </div>
           <div className="box-info-footer">
-            <a href={Certificate.verify} target="_blank" rel="noreferrer">
+            <a href={Certificate.verify} target="_blank" rel="noopener noreferrer">
               <i className="fa fa-duotone fa-arrow-up-right-from-square"></i>
             </a>
             <button
@@ -52,9 +54,9 @@ export default function CCard({ Certificate }) {
             >
               <i className="fa fa-duotone fa-edit"></i>
             </button>
-            <button onClick={() => alert("Coming Soon")}>
+            <a href={Certificate.view} target="_blank" rel="noopener noreferrer">
               <i className="fa fa-duotone fa-eye"></i>
-            </button>
+            </a>
             <button onClick={deleteCertificate}>
               <i className="fa fa-duotone fa-trash"></i>
             </button>

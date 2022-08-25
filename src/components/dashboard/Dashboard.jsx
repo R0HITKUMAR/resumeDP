@@ -52,7 +52,7 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <Modal status={modal} setModal={setModal} email={props.user.email}/>
+      <Modal status={modal} setModal={setModal} email={props.user.email} />
       <Sidebar toggle={stoggle} logout={logout} mode={mode} />
       <section id="content">
         <Navbar
@@ -60,6 +60,7 @@ export default function Dashboard(props) {
           logout={logout}
           mtoggle={toggleMode}
           modalT={setModal}
+          userName={props.user.userName}
         />
         <main>
           <Routes>

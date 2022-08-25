@@ -30,7 +30,7 @@ export default function ECard({ Education }) {
                         <span className="badge text-bg-success">{Education.school}</span>
                     </div>
                     <div className="box-info-body">
-                        <p>Grade : <span className="badge text-bg-warning">{Education.grade}</span></p>
+                        <p>Score : <span className="badge text-bg-warning">{Education.grade}</span></p>
                         <p>Affilation : {Education.affiliation}</p>
                         <p>Description : {Education.des}</p>
                     </div>

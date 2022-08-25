@@ -14,7 +14,7 @@ export default function Sidebar({ logout, toggle, mode }) {
 
   React.useEffect(() => {
     const path = location.pathname.slice(5);
-    // eslint-disable-next-line no-unused-expressions
+    // eslint-disable-next-line
     const s = "/" + path.replace(/^\/([^\/]*).*$/, "$1");
     setActive(s);
   }, [location.pathname]);

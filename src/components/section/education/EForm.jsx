@@ -83,14 +83,14 @@ export default function EForm(props) {
           </div>
           <div className="box-info-body">
             <p>
-              Grade :{" "}
+              Score :
               <span className="badge text-bg-warning">
                 <input
                   type="text"
                   name="grade"
                   value={Edata.grade}
                   onChange={handleChange}
-                  placeholder="Enter Grade"
+                  placeholder="Enter Score"
                 />
               </span>
             </p>

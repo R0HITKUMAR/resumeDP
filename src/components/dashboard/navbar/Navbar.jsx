@@ -24,6 +24,9 @@ export default function Navbar(props) {
         aria-expanded="false"
       >
         <img src={img} alt="User" />
+        <span className="name" style={{ marginLeft: "5px" }}>
+          {props.userName}
+        </span>
         <ul
           className="dropdown-menu dropdown-menu-end m-1"
           style={{ zIndex: "1" }}

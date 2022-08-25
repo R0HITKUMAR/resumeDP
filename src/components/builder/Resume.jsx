@@ -5,7 +5,7 @@ import "./Resume.css";
 
 export default function Resume(props) {
   const navigate = useNavigate();
-  const [email, setEmail] = React.useState(props.email);
+  const [email, setEmail] = React.useState("");
   const [Intro, setIntro] = React.useState([]);
   const [Education, setEducation] = React.useState([]);
   const [Projects, setProjects] = React.useState([]);
@@ -14,7 +14,9 @@ export default function Resume(props) {
   const [Achievements, setAchievements] = React.useState([]);
   const [skills, setskills] = React.useState([]);
   const path = window.location.pathname;
+
   React.useEffect(() => {
+    setEmail(props.email);
     axios
       .get(`https://resumedp.herokuapp.com/introduction/retrieve/${email}`)
       .then((res) => {
@@ -40,9 +42,11 @@ export default function Resume(props) {
       .then((res) => {
         setAchievements(res.data);
       });
-    axios.get(`https://resumedp.herokuapp.com/skill/retrieve/${email}`).then((res) => {
-      setskills(res.data);
-    });
+    axios
+      .get(`https://resumedp.herokuapp.com/skill/retrieve/${email}`)
+      .then((res) => {
+        setskills(res.data);
+      });
     axios
       .get(`https://resumedp.herokuapp.com/experience/retrieveAll/${email}`)
       .then((res) => {
@@ -94,7 +98,7 @@ export default function Resume(props) {
                           {education.school}
                         </div>
                         <div className="col-12 d-flex flex-row-reverse">
-                          GPA: 8.6
+                          Score : {education.grade}
                         </div>
                       </div>
                     );

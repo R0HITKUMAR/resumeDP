@@ -31,7 +31,7 @@ export default function Introduction(props) {
         <div className="right">
           <button
             onClick={() => {
-              navigate("/home/myResume");
+              navigate("/resume");
             }}
             className="badge rounded-pill text-bg-primary"
           >

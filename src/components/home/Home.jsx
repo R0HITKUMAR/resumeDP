@@ -7,7 +7,6 @@ import Register from "../auth/Register";
 import Dashboard from "../dashboard/Dashboard";
 import axios from "axios";
 import Resume from "../builder/Resume";
-import Profile from "../profile/Profile";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -71,7 +70,6 @@ export default function Home() {
           path="/resume"
           element={user.email && <Resume email={user.email} />}
         />
-        <Route path="/user/:userName" element={<Profile />} />
       </Routes>
     </>
   );

@@ -45,7 +45,7 @@ export default function PCard({ Project }) {
             </ul>
           </div>
           <div className="box-info-footer">
-            <a href={Project.url} target="_blank" rel="noreferrer">
+            <a href={Project.url} target="_blank" rel="noopener noreferrer">
               <i className="fa fa-duotone fa-arrow-up-right-from-square"></i>
             </a>
             <button onClick={() => navigate(`/home/projects/updateProject/${Project._id}`)}>

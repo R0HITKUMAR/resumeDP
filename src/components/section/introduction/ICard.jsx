@@ -1,15 +1,16 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Toast from "../../dashboard/SweetAlert";
-import UC from "../../../assets/img/under-conc.svg"
+import UC from "../../../assets/img/under-conc.svg";
 
 export default function ICard(props) {
   const navigate = useNavigate();
   const [Intro, setIntro] = React.useState([]);
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/introduction/retrieve/${props.email}`)
+      .get(
+        `https://resumedp.herokuapp.com/introduction/retrieve/${props.email}`
+      )
       .then((res) => {
         setIntro(res.data);
         if (res.data.name === undefined) {
@@ -56,16 +57,56 @@ export default function ICard(props) {
             <div className="box-info-body">
               <div className="social-link row">
                 <div className="col-10">
-                  {Intro.link1N}<br/>
-                  {Intro.link2N}<br/>
-                  {Intro.link3N}<br/>
-                  {Intro.link4N}<br/>
+                  {Intro.link1N}
+                  <br />
+                  {Intro.link2N}
+                  <br />
+                  {Intro.link3N}
+                  <br />
+                  {Intro.link4N}
+                  <br />
                 </div>
                 <div className="col-2">
-                  <a href={Intro.link1} target="_blank" rel="noopener">Visit</a><br/>
-                  <a href={Intro.link2} target="_blank" rel="noopener">Visit</a><br/>
-                  <a href={Intro.link3} target="_blank" rel="noopener">Visit</a><br/>
-                  <a href={Intro.link4} target="_blank" rel="noopener">Visit</a><br/>
+                  {Intro.link1 && (
+                    <a
+                      href={Intro.link1}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit
+                    </a>
+                  )}
+                  <br />
+                  {Intro.link2 && (
+                    <a
+                      href={Intro.link2}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit
+                    </a>
+                  )}
+                  <br />
+                  {Intro.link3 && (
+                    <a
+                      href={Intro.link3}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit
+                    </a>
+                  )}
+                  <br />
+                  {Intro.link4 && (
+                    <a
+                      href={Intro.link4}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Visit
+                    </a>
+                  )}
+                  <br />
                 </div>
               </div>
             </div>

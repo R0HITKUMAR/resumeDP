@@ -15,7 +15,9 @@ export default function Certificates(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/certificate/retrieveAll/${props.email}`)
+      .get(
+        `https://resumedp.herokuapp.com/certificate/retrieveAll/${props.email}`
+      )
       .then((res) => {
         setCertificates(res.data);
         setIsLoading(false);
@@ -56,7 +58,14 @@ export default function Certificates(props) {
             <>
               {Certificates.length > 0 ? (
                 Certificates.map((certificate, index) => {
-                  return <CCard Certificate={certificate} key={index} />;
+                  return (
+                    <CCard
+                      Certificate={certificate}
+                      key={index}
+                      setMcontent={props.setMcontent}
+                      modalT={props.setModal}
+                    />
+                  );
                 })
               ) : (
                 <NoRecord />
