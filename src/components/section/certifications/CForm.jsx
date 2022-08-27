@@ -26,7 +26,7 @@ export default function CForm(props) {
     formData.append("file", file);
     try {
       const res = await axios.post(
-        `https://rohit-filestore.herokuapp.com/upload/${location}`,
+        `https://filestore.aboutrohit.in/upload/${location}`,
         formData
       );
       setCdata({ ...Cdata, view: res.data.url });
@@ -52,7 +52,7 @@ export default function CForm(props) {
       Cdata.view !== ""
     ) {
       axios
-        .post("https://resumedp.herokuapp.com/certificate/add", Cdata)
+        .post("https://resumedps.aboutrohit.in/certificate/add", Cdata)
         .then((res) => {
           Toast.fire({
             icon: "success",

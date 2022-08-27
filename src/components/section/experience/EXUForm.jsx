@@ -10,7 +10,7 @@ export default function EUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/experience/retrieveOne/${hash}`)
+      .get(`https://resumedps.aboutrohit.in/experience/retrieveOne/${hash}`)
       .then((res) => {
         setEXdata(res.data);
       })
@@ -26,7 +26,7 @@ export default function EUForm() {
 
   const updateExperience = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/experience/update/${hash}`, EXdata)
+      .put(`https://resumedps.aboutrohit.in/experience/update/${hash}`, EXdata)
       .then((res) => {
         Toast.fire({
           icon: "success",

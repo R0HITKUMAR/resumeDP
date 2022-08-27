@@ -12,7 +12,7 @@ export default function PUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/project/retrieveOne/${hash}`)
+      .get(`https://resumedps.aboutrohit.in/project/retrieveOne/${hash}`)
       .then((res) => {
         setPdata(res.data);
       })
@@ -31,7 +31,7 @@ export default function PUForm() {
 
   const updateProject = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/project/update/${hash}`, Pdata)
+      .put(`https://resumedps.aboutrohit.in/project/update/${hash}`, Pdata)
       .then((res) => {
         Toast.fire({
           icon: "success",

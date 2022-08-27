@@ -44,7 +44,7 @@ export default function Login(props) {
       User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
     ) {
       axios
-        .post("https://resumedp.herokuapp.com/auth/login", User)
+        .post("https://resumedps.aboutrohit.in/auth/login", User)
         .then((res) => {
           setAlert(res.data.message);
           if (res.data.message === "Logged In Successfully") {

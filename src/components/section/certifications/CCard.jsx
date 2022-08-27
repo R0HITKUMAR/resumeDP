@@ -9,7 +9,7 @@ export default function CCard({ Certificate }) {
   const deleteCertificate = () => {
     axios
       .delete(
-        `https://resumedp.herokuapp.com/certificate/delete/${Certificate._id}`
+        `https://resumedps.aboutrohit.in/certificate/delete/${Certificate._id}`
       )
       .then((res) => {
         Toast.fire({

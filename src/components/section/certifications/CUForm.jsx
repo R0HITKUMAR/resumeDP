@@ -11,7 +11,7 @@ export default function CUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/certificate/retrieveOne/${hash}`)
+      .get(`https://resumedps.aboutrohit.in/certificate/retrieveOne/${hash}`)
       .then((res) => {
         setCdata(res.data);
       })
@@ -30,7 +30,7 @@ export default function CUForm() {
 
   const updateCertificate = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/certificate/update/${hash}`, Cdata)
+      .put(`https://resumedps.aboutrohit.in/certificate/update/${hash}`, Cdata)
       .then((res) => {
         Toast.fire({
           icon: "success",

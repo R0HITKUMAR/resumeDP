@@ -11,7 +11,7 @@ export default function Introduction(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/introduction/retrieve/${props.email}`)
+      .get(`https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`)
       .then((res) => {
         if (res.data.name === undefined) {
           navigate("/home/intro/addIntro");

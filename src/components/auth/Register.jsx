@@ -49,7 +49,7 @@ export default function Register() {
       }
     } else if (name === "userName") {
       axios
-        .get(`https://resumedp.herokuapp.com/auth/validateUserName/${value}`)
+        .get(`https://resumedps.aboutrohit.in/auth/validateUserName/${value}`)
         .then((res) => {
           if (
             res.data.message !== "Username Already Exists" &&
@@ -79,7 +79,7 @@ export default function Register() {
             if (User.password.length >= 6) {
               if (User.password === User.confirmPassword) {
                 axios
-                  .post("https://resumedp.herokuapp.com/auth/sendVotp", User)
+                  .post("https://resumedps.aboutrohit.in/auth/sendVotp", User)
                   .then((res) => {
                     setAlert(res.data.message);
                     if (res.data.success) {
@@ -128,7 +128,7 @@ export default function Register() {
 
   function Register() {
     axios
-      .post("https://resumedp.herokuapp.com/auth/register", User)
+      .post("https://resumedps.aboutrohit.in/auth/register", User)
       .then((res) => {
         setAlert(res.data.message);
         if (res.data.success) {

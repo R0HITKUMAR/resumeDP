@@ -9,7 +9,7 @@ export default function EUForm() {
   const [Edata, setEdata] = React.useState({});
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/education/retrieveOne/${hash}`)
+      .get(`https://resumedps.aboutrohit.in/education/retrieveOne/${hash}`)
       .then((res) => {
         setEdata(res.data);
       })
@@ -25,7 +25,7 @@ export default function EUForm() {
 
   const updateProject = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/education/update/${hash}`, Edata)
+      .put(`https://resumedps.aboutrohit.in/education/update/${hash}`, Edata)
       .then((res) => {
         Toast.fire({
           icon: "success",

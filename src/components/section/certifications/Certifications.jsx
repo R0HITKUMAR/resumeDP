@@ -16,7 +16,7 @@ export default function Certificates(props) {
   React.useEffect(() => {
     axios
       .get(
-        `https://resumedp.herokuapp.com/certificate/retrieveAll/${props.email}`
+        `https://resumedps.aboutrohit.in/certificate/retrieveAll/${props.email}`
       )
       .then((res) => {
         setCertificates(res.data);

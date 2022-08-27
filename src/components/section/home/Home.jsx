@@ -10,7 +10,7 @@ export default function Home(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/dashboard/${props.email}/get`)
+      .get(`https://resumedps.aboutrohit.in/dashboard/${props.email}/get`)
       .then((res) => {
         setDashboard(res.data);
       })

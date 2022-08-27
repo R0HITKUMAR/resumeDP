@@ -8,7 +8,7 @@ export default function SCard(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/skill/retrieve/${props.email}`)
+      .get(`https://resumedps.aboutrohit.in/skill/retrieve/${props.email}`)
       .then((res) => {
         setskills(res.data);
         if (res.data.technical === undefined) {

@@ -24,7 +24,7 @@ export default function EForm(props) {
 
   const addEducation = () => {
     axios
-      .post("https://resumedp.herokuapp.com/education/add", Edata)
+      .post("https://resumedps.aboutrohit.in/education/add", Edata)
       .then((res) => {
         Toast.fire({
           icon: "success",

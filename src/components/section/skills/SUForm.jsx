@@ -13,7 +13,7 @@ export default function SUForm(props) {
       .then((res) => {
         setSkill(res.data);
         if (res.data.technical === undefined) {
-          navigate("https://resumedp.herokuapp.com/home/skills/addSkills");
+          navigate("https://resumedps.aboutrohit.in/home/skills/addSkills");
         }
       })
       .catch((err) => {
@@ -27,7 +27,7 @@ export default function SUForm(props) {
 
   const updateSkills = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/skill/update/${skill._id}`, skill)
+      .put(`https://resumedps.aboutrohit.in/skill/update/${skill._id}`, skill)
       .then((res) => {
         Toast.fire({
           icon: "success",

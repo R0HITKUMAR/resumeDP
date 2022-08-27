@@ -9,7 +9,7 @@ export default function ICard(props) {
   React.useEffect(() => {
     axios
       .get(
-        `https://resumedp.herokuapp.com/introduction/retrieve/${props.email}`
+        `https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`
       )
       .then((res) => {
         setIntro(res.data);

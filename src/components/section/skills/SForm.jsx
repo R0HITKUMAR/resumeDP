@@ -23,7 +23,7 @@ export default function SForm(props) {
 
   const addSkills = () => {
     axios
-      .post("https://resumedp.herokuapp.com/skill/add", skill)
+      .post("https://resumedps.aboutrohit.in/skill/add", skill)
       .then((res) => {
         Toast.fire({
           icon: "success",

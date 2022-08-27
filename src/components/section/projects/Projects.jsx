@@ -15,7 +15,7 @@ export default function Projects(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/project/retrieveAll/${props.email}`)
+      .get(`https://resumedps.aboutrohit.in/project/retrieveAll/${props.email}`)
       .then((res) => {
         setProjects(res.data);
         setIsLoading(false);

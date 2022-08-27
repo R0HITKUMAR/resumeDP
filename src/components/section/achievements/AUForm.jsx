@@ -10,7 +10,7 @@ export default function AUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/achievement/retrieveOne/${hash}`)
+      .get(`https://resumedps.aboutrohit.in/achievement/retrieveOne/${hash}`)
       .then((res) => {
         setAdata(res.data);
       })
@@ -26,7 +26,7 @@ export default function AUForm() {
 
   const updateAchievement = () => {
     axios
-      .put(`https://resumedp.herokuapp.com/achievement/update/${hash}`, Adata)
+      .put(`https://resumedps.aboutrohit.in/achievement/update/${hash}`, Adata)
       .then((res) => {
         Toast.fire({
           icon: "success",

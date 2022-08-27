@@ -16,7 +16,7 @@ export default function Experience(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedp.herokuapp.com/experience/retrieveAll/${props.email}`)
+      .get(`https://resumedps.aboutrohit.in/experience/retrieveAll/${props.email}`)
       .then((res) => {
         setExperience(res.data);
         setIsLoading(false);

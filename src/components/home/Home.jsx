@@ -26,7 +26,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
     const path = window.location.pathname;
     axios
-      .get(`https://resumedp.herokuapp.com/auth/validate/${token}`)
+      .get(`https://resumedps.aboutrohit.in/auth/validate/${token}`)
       .then((res) => {
         if (res.data.isLogged) {
           setUserDetails(res.data.email, res.data.userName);
