@@ -6,7 +6,6 @@ import Toast from "../../dashboard/SweetAlert";
 export default function CForm(props) {
   const navigate = useNavigate();
 
-  const [file, setFile] = React.useState();
   const [Cdata, setCdata] = React.useState({
     title: "",
     no: "",
@@ -16,25 +15,6 @@ export default function CForm(props) {
     view: "",
     email: props.email,
   });
-  const saveFile = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const uploadFile = async (e) => {
-    const formData = new FormData();
-    const location = "certificates";
-    formData.append("file", file);
-    try {
-      const res = await axios.post(
-        `https://filestore.aboutrohit.in/upload/${location}`,
-        formData
-      );
-      setCdata({ ...Cdata, view: res.data.url });
-      console.log(res);
-    } catch (ex) {
-      console.log(ex);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,8 +28,7 @@ export default function CForm(props) {
     if (
       Cdata.title !== "" &&
       Cdata.issued_by !== "" &&
-      Cdata.issued_on !== "" &&
-      Cdata.view !== ""
+      Cdata.issued_on !== "" 
     ) {
       axios
         .post("https://resumedps.aboutrohit.in/certificate/add", Cdata)
@@ -130,21 +109,6 @@ export default function CForm(props) {
               />
             </p>
             <br />
-            {!Cdata.view ? (
-              <div class="input-group mb-3">
-                <input
-                  className="form-control form-control-sm"
-                  style={{ marginLeft: "0px", width: "80%" }}
-                  onChange={saveFile}
-                  type="file"
-                />
-                <button className="btn btn-primary btn-sm" onClick={uploadFile}>
-                  Upload
-                </button>
-              </div>
-            ) : (
-              <p>File Uploaded Successfully</p>
-            )}
           </div>
           <div className="box-info-footer">
             <button onClick={() => navigate("/home/certifications")}>
