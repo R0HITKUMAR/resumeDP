@@ -2,16 +2,12 @@ import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
 import path from "path";
 
-var transporter = nodemailer.createTransport({
-  host: "smtp.office365.com",
-  secureConnection: false,
-  port: 587,
-  tls: {
-    ciphers: "SSLv3",
-  },
+let transporter = nodemailer.createTransport({
+  host: "smtp.elasticemail.com",
+  port: 2525,
   auth: {
-    user: "ResumeDP@outlook.com",
-    pass: "14de4477a1b64e9e8c76103eb09e50891",
+    user: "no-reply@aboutrohit.in",
+    pass: process.env.SMTP_PASSWORD,
   },
 });
 
@@ -27,7 +23,7 @@ transporter.use("compile", hbs(handlebarOptions));
 
 function sendOTPMail(email, otp, reason, sub) {
   var mailOptions = {
-    from: "ResumeDP <ResumeDP@outlook.com>",
+    from: "ResumeDP <no-reply@aboutrohit.in>",
     to: email,
     subject: sub,
     template: "otp",
@@ -48,7 +44,7 @@ function sendOTPMail(email, otp, reason, sub) {
 
 function sendWelcomeMail(email) {
   var mailOptions = {
-    from: "ResumeDP <ResumeDP@outlook.com>",
+    from: "ResumeDP <no-reply@aboutrohit.in>",
     to: email,
     subject: "Welcome to Resumee!",
     template: "welcome",
