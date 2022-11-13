@@ -24,7 +24,7 @@ export default function EForm(props) {
 
   const addEducation = () => {
     axios
-      .post("http://localhost:5000/education/add", Edata)
+      .post("https://resumedps.aboutrohit.in/education/add", Edata)
       .then((res) => {
         Toast.fire({
           icon: "success",

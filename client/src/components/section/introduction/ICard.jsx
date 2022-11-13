@@ -9,7 +9,7 @@ export default function ICard(props) {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/introduction/retrieve/${props.email}`
+        `https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`
       )
       .then((res) => {
         setIntro(res.data);

@@ -28,7 +28,7 @@ export default function PForm(props) {
   };
 
   const addProject = () => {
-    axios.post("http://localhost:5000/project/add", Pdata)
+    axios.post("https://resumedps.aboutrohit.in/project/add", Pdata)
       .then(res => {
         Toast.fire({
           icon: 'success',

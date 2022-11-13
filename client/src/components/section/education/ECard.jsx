@@ -6,7 +6,7 @@ import Toast from "../../dashboard/SweetAlert";
 export default function ECard({ Education }) {
     const navigate = useNavigate();
     const deleteEducation = () => {
-        axios.delete(`http://localhost:5000/education/delete/${Education._id}`)
+        axios.delete(`https://resumedps.aboutrohit.in/education/delete/${Education._id}`)
             .then(res => {
                 Toast.fire({
                     icon: 'success',

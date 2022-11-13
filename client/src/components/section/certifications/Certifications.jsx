@@ -16,7 +16,7 @@ export default function Certificates(props) {
   React.useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/certificate/retrieveAll/${props.email}`
+        `https://resumedps.aboutrohit.in/certificate/retrieveAll/${props.email}`
       )
       .then((res) => {
         setCertificates(res.data);
