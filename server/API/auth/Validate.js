@@ -1,12 +1,13 @@
 import express from "express";
 import jwt from "jsonwebtoken";
+import config from "../../config.js";
 
 var resumee = express.Router();
 
 function verifyJWT(req, res, next) {
   const token = req.params.token;
   if (token) {
-    jwt.verify(token, process.env.PASSPORTSECRET, (err, decoded) => {
+    jwt.verify(token, config.PASSPORTSECRET, (err, decoded) => {
       if (err) {
         console.log(err);
         return res.send({

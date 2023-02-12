@@ -1,6 +1,7 @@
 import User from "../../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import config from "../../config.js";
 
 function Login(req, res) {
   const userLoggingIn = req.body;
@@ -20,7 +21,7 @@ function Login(req, res) {
           };
           jwt.sign(
             payload,
-            process.env.JWT_SECRET,
+            config.JWT_SECRET,
             { expiresIn: "864000000" },
             (err, token) => {
               if (err) return res.data({ message: err });

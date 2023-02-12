@@ -6,7 +6,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import dotenv from "dotenv";
 import ConnectDB from "./database.js";
 import Auth from "./routes/Auth.js";
 import Dashboard from "./routes/Dashboard.js";
@@ -17,10 +16,10 @@ import Certificate from "./routes/Certificate.js";
 import Experience from "./routes/Experience.js";
 import Introduction from "./routes/Introduction.js";
 import Skill from "./routes/Skill.js";
+import config from "./config.js";
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-const PORT = process.env.PORT || 5000;
-dotenv.config();
+const PORT = config.PORT;
 
 var resumee = express();
 resumee.use(express.json());
@@ -59,7 +58,7 @@ resumee.post("/upload", (req, res) => {
 });
 
 resumee.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello World from ResumeDP Server");
 });
 
 resumee.listen(PORT, () => {

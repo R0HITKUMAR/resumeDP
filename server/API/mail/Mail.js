@@ -1,13 +1,14 @@
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-express-handlebars";
 import path from "path";
+import config from "../../config.js";
 
 let transporter = nodemailer.createTransport({
-  host: "smtp.elasticemail.com",
-  port: 2525,
+  host: config.SMTP_HOST,
+  port: config.SMTP_PORT,
   auth: {
-    user: "no-reply@aboutrohit.in",
-    pass: process.env.SMTP_PASSWORD,
+    user: config.SMTP_USER,
+    pass: config.SMTP_PASS,
   },
 });
 

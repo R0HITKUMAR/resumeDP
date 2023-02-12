@@ -3,6 +3,7 @@ var resumee = express.Router();
 import User from "../../models/User.js";
 import bcrypt from "bcrypt";
 import { sendWelcomeMail } from "../mail/Mail.js";
+import config from "../../config.js";
 
 resumee.post("/register", async (req, res) => {
   const user = req.body;
