@@ -15,7 +15,7 @@ export default function Projects(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/project/retrieveAll/${props.email}`)
+      .get(`http://localhost:5000/project/retrieveAll/${props.email}`)
       .then((res) => {
         setProjects(res.data);
         setIsLoading(false);
@@ -34,7 +34,7 @@ export default function Projects(props) {
         <div className="right">
           <button
             onClick={() => {
-              navigate("/home/projects/addProject");
+              navigate("/projects/addProject");
             }}
             className="badge rounded-pill text-bg-primary"
           >

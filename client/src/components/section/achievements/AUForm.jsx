@@ -10,7 +10,7 @@ export default function AUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/achievement/retrieveOne/${hash}`)
+      .get(`http://localhost:5000/achievement/retrieveOne/${hash}`)
       .then((res) => {
         setAdata(res.data);
       })
@@ -26,13 +26,13 @@ export default function AUForm() {
 
   const updateAchievement = () => {
     axios
-      .put(`https://resumedps.aboutrohit.in/achievement/update/${hash}`, Adata)
+      .put(`http://localhost:5000/achievement/update/${hash}`, Adata)
       .then((res) => {
         Toast.fire({
           icon: "success",
           title: "Achievement Updated Successfully",
         });
-        navigate("/home/achievements");
+        navigate("/achievements");
       })
       .catch((err) => {
         Toast.fire({
@@ -69,7 +69,7 @@ export default function AUForm() {
             </h5>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/achievements")}>
+            <button onClick={() => navigate("/achievements")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={updateAchievement}>

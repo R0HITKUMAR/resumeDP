@@ -16,7 +16,7 @@ export default function Certificates(props) {
   React.useEffect(() => {
     axios
       .get(
-        `https://resumedps.aboutrohit.in/certificate/retrieveAll/${props.email}`
+        `http://localhost:5000/certificate/retrieveAll/${props.email}`
       )
       .then((res) => {
         setCertificates(res.data);
@@ -36,7 +36,7 @@ export default function Certificates(props) {
         <div className="right">
           <button
             onClick={() => {
-              navigate("/home/certifications/addCertificate");
+              navigate("/certifications/addCertificate");
             }}
             className="badge rounded-pill text-bg-primary"
           >

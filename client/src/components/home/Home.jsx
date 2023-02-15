@@ -26,7 +26,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
     const path = window.location.pathname;
     axios
-      .get(`https://resumedps.aboutrohit.in/auth/validate/${token}`)
+      .get(`http://localhost:5000/auth/validate/${token}`)
       .then((res) => {
         if (res.data.isLogged) {
           setUserDetails(res.data.email, res.data.userName);
@@ -36,7 +36,7 @@ export default function Home() {
             path === "/register" ||
             path === "/resetPassword"
           ) {
-            navigate("/home");
+            navigate("/");
           }
         } else {
           console.log("Failed to Authenticate");
@@ -58,11 +58,7 @@ export default function Home() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route
-          path="/home/*"
-          element={user.email && <Dashboard user={user} />}
-        />
+        <Route path="/*" element={user.email ? <Dashboard user={user} /> : <Main setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUserDetails} />} />
         <Route path="/resetPassword" element={<Reset />} />
         <Route path="/register" element={<Register />} />

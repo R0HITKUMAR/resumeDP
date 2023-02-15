@@ -24,13 +24,13 @@ export default function EForm(props) {
 
   const addEducation = () => {
     axios
-      .post("https://resumedps.aboutrohit.in/education/add", Edata)
+      .post("http://localhost:5000/education/add", Edata)
       .then((res) => {
         Toast.fire({
           icon: "success",
           title: res.data.message,
         });
-        navigate("/home/education");
+        navigate("/education");
       })
       .catch((err) => {
         Toast.fire({
@@ -116,7 +116,7 @@ export default function EForm(props) {
             </p>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/education")}>
+            <button onClick={() => navigate("/education")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={addEducation}>

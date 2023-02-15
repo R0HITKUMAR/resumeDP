@@ -9,12 +9,12 @@ export default function ICard(props) {
   React.useEffect(() => {
     axios
       .get(
-        `https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`
+        `http://localhost:5000/introduction/retrieve/${props.email}`
       )
       .then((res) => {
         setIntro(res.data);
         if (res.data.name === undefined) {
-          navigate("/home/intro/addIntro");
+          navigate("/intro/addIntro");
         }
       })
       .catch((err) => {
@@ -128,7 +128,7 @@ export default function ICard(props) {
         </div>
       </div>
       <div className="box-info-footer">
-        <button onClick={() => navigate("/home/intro/updateIntro")}>
+        <button onClick={() => navigate("/intro/updateIntro")}>
           <i className="fa fa-duotone fa-edit"></i>
         </button>
       </div>

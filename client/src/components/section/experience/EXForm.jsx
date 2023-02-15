@@ -21,13 +21,13 @@ export default function EXForm(props) {
     }
 
     const addExperience = () => {
-        axios.post("https://resumedps.aboutrohit.in/experience/add", EXdata)
+        axios.post("http://localhost:5000/experience/add", EXdata)
             .then(res => {
                 Toast.fire({
                     icon: 'success',
                     title: res.data.message
                 })
-                navigate("/home/experience")
+                navigate("/experience")
             }).catch(err => {
                 Toast.fire({
                     icon: 'error',
@@ -87,7 +87,7 @@ export default function EXForm(props) {
                         </p>
                     </div>
                     <div className="box-info-footer">
-                        <button onClick={() => navigate("/home/experience")}>
+                        <button onClick={() => navigate("/experience")}>
                             <i className="fa fa-duotone fa-x"></i>
                         </button>
                         <button onClick={addExperience}>

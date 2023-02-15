@@ -16,7 +16,7 @@ export default function Experience(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/education/retrieveAll/${props.email}`)
+      .get(`http://localhost:5000/education/retrieveAll/${props.email}`)
       .then((res) => {
         setEducation(res.data);
         setIsLoading(false);
@@ -35,7 +35,7 @@ export default function Experience(props) {
         <div className="right">
           <button
             onClick={() => {
-              navigate("/home/education/addEducation");
+              navigate("/education/addEducation");
             }}
             className="badge rounded-pill text-bg-primary"
           >

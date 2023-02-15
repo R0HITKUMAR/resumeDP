@@ -31,13 +31,13 @@ export default function CForm(props) {
       Cdata.issued_on !== "" 
     ) {
       axios
-        .post("https://resumedps.aboutrohit.in/certificate/add", Cdata)
+        .post("http://localhost:5000/certificate/add", Cdata)
         .then((res) => {
           Toast.fire({
             icon: "success",
             title: res.data.message,
           });
-          navigate("/home/certifications");
+          navigate("/certifications");
         })
         .catch((err) => {
           Toast.fire({
@@ -111,7 +111,7 @@ export default function CForm(props) {
             <br />
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/certifications")}>
+            <button onClick={() => navigate("/certifications")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={addCertificate}>

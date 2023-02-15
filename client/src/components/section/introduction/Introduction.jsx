@@ -11,10 +11,10 @@ export default function Introduction(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`)
+      .get(`http://localhost:5000/introduction/retrieve/${props.email}`)
       .then((res) => {
         if (res.data.name === undefined) {
-          navigate("/home/intro/addIntro");
+          navigate("/intro/addIntro");
         }
       })
       .catch((err) => {

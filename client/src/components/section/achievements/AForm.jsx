@@ -18,13 +18,13 @@ export default function AForm(props) {
     }
 
     const addAchievement = () => {
-        axios.post(`https://resumedps.aboutrohit.in/achievement/add`, Adata)
+        axios.post(`http://localhost:5000/achievement/add`, Adata)
             .then(res => {
                 Toast.fire({
                     icon: 'success',
                     title: res.data.message
                 })
-                navigate("/home/achievements")
+                navigate("/achievements")
             }).catch(err => {
                 Toast.fire({
                     icon: 'error',
@@ -60,7 +60,7 @@ export default function AForm(props) {
                         </h5>
                     </div>
                     <div className="box-info-footer">
-                        <button onClick={() => navigate("/home/achievements")}>
+                        <button onClick={() => navigate("/achievements")}>
                             <i className="fa fa-duotone fa-x"></i>
                         </button>
                         <button onClick={addAchievement}>

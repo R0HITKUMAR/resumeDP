@@ -7,7 +7,7 @@ export default function PCard({ Project }) {
   const navigate = useNavigate();
 
   const deleteProject = () => {
-    axios.delete(`https://resumedps.aboutrohit.in/project/delete/${Project._id}`)
+    axios.delete(`http://localhost:5000/project/delete/${Project._id}`)
       .then(res => {
         Toast.fire({
           icon: 'success',
@@ -48,7 +48,7 @@ export default function PCard({ Project }) {
             <a href={Project.url} target="_blank" rel="noopener noreferrer">
               <i className="fa fa-duotone fa-arrow-up-right-from-square"></i>
             </a>
-            <button onClick={() => navigate(`/home/projects/updateProject/${Project._id}`)}>
+            <button onClick={() => navigate(`/projects/updateProject/${Project._id}`)}>
               <i className="fa fa-duotone fa-edit"></i>
             </button>
             <button onClick={deleteProject}>

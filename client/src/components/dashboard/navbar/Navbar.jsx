@@ -32,14 +32,14 @@ export default function Navbar(props) {
           style={{ zIndex: "1" }}
         >
           <li>
-            <button className="dropdown-item" onClick={() => navigate("/home")}>
+            <button className="dropdown-item" onClick={() => navigate("/")}>
               Dashboard
             </button>
           </li>
           <li>
             <button
               className="dropdown-item"
-              onClick={() => navigate("/home/intro")}
+              onClick={() => navigate("/intro")}
             >
               My Profile
             </button>

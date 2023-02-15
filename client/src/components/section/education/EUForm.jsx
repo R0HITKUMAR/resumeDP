@@ -9,7 +9,7 @@ export default function EUForm() {
   const [Edata, setEdata] = React.useState({});
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/education/retrieveOne/${hash}`)
+      .get(`http://localhost:5000/education/retrieveOne/${hash}`)
       .then((res) => {
         setEdata(res.data);
       })
@@ -25,13 +25,13 @@ export default function EUForm() {
 
   const updateProject = () => {
     axios
-      .put(`https://resumedps.aboutrohit.in/education/update/${hash}`, Edata)
+      .put(`http://localhost:5000/education/update/${hash}`, Edata)
       .then((res) => {
         Toast.fire({
           icon: "success",
           title: "Education Updated Successfully",
         });
-        navigate("/home/education");
+        navigate("/education");
       })
       .catch((err) => {
         Toast.fire({
@@ -117,7 +117,7 @@ export default function EUForm() {
             </p>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/education")}>
+            <button onClick={() => navigate("/education")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={updateProject}>

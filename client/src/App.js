@@ -5,7 +5,7 @@ import axios from "axios";
 function App() {
   React.useEffect(() => {
     axios
-      .get("https://resumedps.aboutrohit.in")
+      .get("http://localhost:5000")
       .then((res) => console.log(res.data));
   }, []);
 

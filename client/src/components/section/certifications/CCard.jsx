@@ -9,7 +9,7 @@ export default function CCard({ Certificate }) {
   const deleteCertificate = () => {
     axios
       .delete(
-        `https://resumedps.aboutrohit.in/certificate/delete/${Certificate._id}`
+        `http://localhost:5000/certificate/delete/${Certificate._id}`
       )
       .then((res) => {
         Toast.fire({
@@ -48,7 +48,7 @@ export default function CCard({ Certificate }) {
             <button
               onClick={() =>
                 navigate(
-                  `/home/certifications/updateCertificate/${Certificate._id}`
+                  `/certifications/updateCertificate/${Certificate._id}`
                 )
               }
             >

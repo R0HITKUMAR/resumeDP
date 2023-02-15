@@ -8,11 +8,11 @@ export default function SCard(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/skill/retrieve/${props.email}`)
+      .get(`http://localhost:5000/skill/retrieve/${props.email}`)
       .then((res) => {
         setskills(res.data);
         if (res.data.technical === undefined) {
-          navigate("/home/skills/addSkills");
+          navigate("/skills/addSkills");
         }
       })
       .catch((err) => {
@@ -85,7 +85,7 @@ export default function SCard(props) {
         </div>
       </div>
       <div className="box-info-footer">
-        <button onClick={() => navigate("/home/skills/updateSkills")}>
+        <button onClick={() => navigate("/skills/updateSkills")}>
           <i className="fa fa-duotone fa-edit"></i>
         </button>
       </div>

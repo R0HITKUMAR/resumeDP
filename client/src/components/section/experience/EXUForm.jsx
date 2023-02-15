@@ -10,7 +10,7 @@ export default function EUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/experience/retrieveOne/${hash}`)
+      .get(`http://localhost:5000/experience/retrieveOne/${hash}`)
       .then((res) => {
         setEXdata(res.data);
       })
@@ -26,13 +26,13 @@ export default function EUForm() {
 
   const updateExperience = () => {
     axios
-      .put(`https://resumedps.aboutrohit.in/experience/update/${hash}`, EXdata)
+      .put(`http://localhost:5000/experience/update/${hash}`, EXdata)
       .then((res) => {
         Toast.fire({
           icon: "success",
           title: "Experience Updated Successfully",
         });
-        navigate("/home/experience");
+        navigate("/experience");
       })
       .catch((err) => {
         Toast.fire({
@@ -101,7 +101,7 @@ export default function EUForm() {
             </p>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/experience")}>
+            <button onClick={() => navigate("/experience")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={updateExperience}>

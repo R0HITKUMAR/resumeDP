@@ -10,11 +10,11 @@ export default function NoRecord() {
 
   return (
     <div className="text-center norecord">
-      {pathName === "/home/education" ||
-      pathName === "/home/achievements" ||
-      pathName === "/home/projects" ||
-      pathName === "/home/certifications" ||
-      pathName === "/home/experience" ? (
+      {pathName === "/education" ||
+      pathName === "/achievements" ||
+      pathName === "/projects" ||
+      pathName === "/certifications" ||
+      pathName === "/experience" ? (
         <img src={img} alt="No Record" style={{ height: "70vh" }} />
       ) : null}
     </div>

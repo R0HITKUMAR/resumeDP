@@ -6,7 +6,7 @@ import Toast from "../../dashboard/SweetAlert";
 export default function EXCard({ Experience }) {
     const navigate = useNavigate();
     const deleteExperience = () => {
-        axios.delete(`https://resumedps.aboutrohit.in/experience/delete/${Experience._id}`)
+        axios.delete(`http://localhost:5000/experience/delete/${Experience._id}`)
             .then(res => {
                 Toast.fire({
                     icon: 'success',
@@ -34,7 +34,7 @@ export default function EXCard({ Experience }) {
                         <p>Description : {Experience.des}</p>
                     </div>
                     <div className="box-info-footer">
-                        <button onClick={() => navigate(`/home/experience/updateExperience/${Experience._id}`)}>
+                        <button onClick={() => navigate(`/experience/updateExperience/${Experience._id}`)}>
                             <i className="fa fa-duotone fa-edit"></i>
                         </button>
                         <button onClick={deleteExperience}>

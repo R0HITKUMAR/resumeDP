@@ -15,7 +15,7 @@ export default function Achievements(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/achievement/retrieveAll/${props.email}`)
+      .get(`http://localhost:5000/achievement/retrieveAll/${props.email}`)
       .then((res) => {
         setAchievements(res.data);
         setIsLoading(false);
@@ -34,7 +34,7 @@ export default function Achievements(props) {
         <div className="right">
           <button
             onClick={() => {
-              navigate("/home/achievements/addAchievement");
+              navigate("/achievements/addAchievement");
             }}
             className="badge rounded-pill text-bg-primary"
           >

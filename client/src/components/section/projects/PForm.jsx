@@ -28,13 +28,13 @@ export default function PForm(props) {
   };
 
   const addProject = () => {
-    axios.post("https://resumedps.aboutrohit.in/project/add", Pdata)
+    axios.post("http://localhost:5000/project/add", Pdata)
       .then(res => {
         Toast.fire({
           icon: 'success',
           title: res.data.message
         })
-        navigate("/home/projects")
+        navigate("/projects")
       }).catch(err => {
         Toast.fire({
           icon: 'error',
@@ -129,7 +129,7 @@ export default function PForm(props) {
             </ul>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/projects")}>
+            <button onClick={() => navigate("/projects")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={addProject}>

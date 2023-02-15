@@ -58,7 +58,7 @@ export default function Sidebar({ logout, toggle, mode }) {
     <section id="sidebar" className={toggle ? "hide" : ""}>
       {mode ? (
         //Dark mode
-        <button onClick={() => navigate("/home")} className="brand">
+        <button onClick={() => navigate("/")} className="brand">
           {toggle ? (
             <img src={LDM} alt="logo" className="brand-image-m" />
           ) : (
@@ -67,7 +67,7 @@ export default function Sidebar({ logout, toggle, mode }) {
         </button>
       ) : (
         // Light Mode
-        <button onClick={() => navigate("/home")} className="brand">
+        <button onClick={() => navigate("/")} className="brand">
           {toggle ? (
             <img src={LLM} alt="logo" className="brand-image-m" />
           ) : (
@@ -80,7 +80,7 @@ export default function Sidebar({ logout, toggle, mode }) {
         {Links.map((item, index) => {
           return (
             <li className={active === item.param ? "active" : ""} key={index}>
-              <button onClick={() => navigate(`/home${item.param}`)}>
+              <button onClick={() => navigate(`${item.param}`)}>
                 <i className={item.icon} />
                 <span className="text">{item.name}</span>
               </button>

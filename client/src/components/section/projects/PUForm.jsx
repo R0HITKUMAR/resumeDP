@@ -12,7 +12,7 @@ export default function PUForm() {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/project/retrieveOne/${hash}`)
+      .get(`http://localhost:5000/project/retrieveOne/${hash}`)
       .then((res) => {
         setPdata(res.data);
       })
@@ -31,13 +31,13 @@ export default function PUForm() {
 
   const updateProject = () => {
     axios
-      .put(`https://resumedps.aboutrohit.in/project/update/${hash}`, Pdata)
+      .put(`http://localhost:5000/project/update/${hash}`, Pdata)
       .then((res) => {
         Toast.fire({
           icon: "success",
           title: "Project Updated Successfully",
         });
-        navigate("/home/projects");
+        navigate("/projects");
       })
       .catch((err) => {
         Toast.fire({
@@ -132,7 +132,7 @@ export default function PUForm() {
             </ul>
           </div>
           <div className="box-info-footer">
-            <button onClick={() => navigate("/home/projects")}>
+            <button onClick={() => navigate("/projects")}>
               <i className="fa fa-duotone fa-x"></i>
             </button>
             <button onClick={updateProject}>
