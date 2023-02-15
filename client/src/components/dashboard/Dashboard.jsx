@@ -45,7 +45,7 @@ export default function Dashboard(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem("token");
-        navigate("/");
+        window.location.reload();
       }
     });
   }
