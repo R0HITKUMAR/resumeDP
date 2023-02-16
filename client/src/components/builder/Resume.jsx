@@ -18,37 +18,37 @@ export default function Resume(props) {
   React.useEffect(() => {
     setEmail(props.email);
     axios
-      .get(`http://localhost:5000/introduction/retrieve/${email}`)
+      .get(`https://resumedps.aboutrohit.in/introduction/retrieve/${email}`)
       .then((res) => {
         setIntro(res.data);
       });
     axios
-      .get(`http://localhost:5000/education/retrieveAll/${email}`)
+      .get(`https://resumedps.aboutrohit.in/education/retrieveAll/${email}`)
       .then((res) => {
         setEducation(res.data);
       });
     axios
-      .get(`http://localhost:5000/project/retrieveAll/${email}`)
+      .get(`https://resumedps.aboutrohit.in/project/retrieveAll/${email}`)
       .then((res) => {
         setProjects(res.data);
       });
     axios
-      .get(`http://localhost:5000/certificate/retrieveAll/${email}`)
+      .get(`https://resumedps.aboutrohit.in/certificate/retrieveAll/${email}`)
       .then((res) => {
         setCertificates(res.data);
       });
     axios
-      .get(`http://localhost:5000/achievement/retrieveAll/${email}`)
+      .get(`https://resumedps.aboutrohit.in/achievement/retrieveAll/${email}`)
       .then((res) => {
         setAchievements(res.data);
       });
     axios
-      .get(`http://localhost:5000/skill/retrieve/${email}`)
+      .get(`https://resumedps.aboutrohit.in/skill/retrieve/${email}`)
       .then((res) => {
         setskills(res.data);
       });
     axios
-      .get(`http://localhost:5000/experience/retrieveAll/${email}`)
+      .get(`https://resumedps.aboutrohit.in/experience/retrieveAll/${email}`)
       .then((res) => {
         setExperience(res.data);
       });
