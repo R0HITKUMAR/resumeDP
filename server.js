@@ -40,15 +40,10 @@ resumee.use("/certificate", Certificate);
 resumee.use("/introduction", Introduction);
 resumee.use("/skill", Skill);
 
-resumee.use(express.static("client/build"));
-
-resumee.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
-
 resumee.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  res.send("Welcome to Resumee");
 });
+
 resumee.listen(PORT, () => {
   ConnectDB()
     .then(() => console.log(`Server is Running  at Port ✌`))
