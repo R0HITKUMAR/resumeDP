@@ -6,17 +6,17 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import ConnectDB from "./database.js";
-import Auth from "./routes/Auth.js";
-import Dashboard from "./routes/Dashboard.js";
-import Project from "./routes/Project.js";
-import Education from "./routes/Education.js";
-import Achievement from "./routes/Achievement.js";
-import Certificate from "./routes/Certificate.js";
-import Experience from "./routes/Experience.js";
-import Introduction from "./routes/Introduction.js";
-import Skill from "./routes/Skill.js";
-import config from "./config.js";
+import ConnectDB from "./src/database.js";
+import Auth from "./src/routes/Auth.js";
+import Dashboard from "./src/routes/Dashboard.js";
+import Project from "./src/routes/Project.js";
+import Education from "./src/routes/Education.js";
+import Achievement from "./src/routes/Achievement.js";
+import Certificate from "./src/routes/Certificate.js";
+import Experience from "./src/routes/Experience.js";
+import Introduction from "./src/routes/Introduction.js";
+import Skill from "./src/routes/Skill.js";
+import config from "./src/config.js";
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const PORT = config.PORT;
@@ -39,28 +39,16 @@ resumee.use("/experience", Experience);
 resumee.use("/certificate", Certificate);
 resumee.use("/introduction", Introduction);
 resumee.use("/skill", Skill);
-resumee.use("/files", express.static(__dirname + "/files"));
 
-console.log(__dirname);
+resumee.use(express.static("client/build"));
 
-resumee.post("/upload", (req, res) => {
-  const newpath = __dirname + "/files/";
-  const file = req.files.file;
-  const filename = file.name;
-  file.mv(`${newpath}${filename}`, (err) => {
-    if (err) {
-      console.log(err);
-      return res.send({ message: "File upload failed" });
-    }
-    console.log("File uploaded");
-    return res.send({ message: "File Uploaded" });
-  });
+resumee.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
 resumee.get("/", (req, res) => {
-  res.send("Hello World from ResumeDP Server");
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
-
 resumee.listen(PORT, () => {
   ConnectDB()
     .then(() => console.log(`Server is Running  at Port ✌`))
