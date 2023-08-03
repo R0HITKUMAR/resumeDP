@@ -23,10 +23,16 @@ export default function Home() {
   };
 
   React.useEffect(() => {
+    axios.get("https://resumedps.aboutrohit.in").then((res) => {
+      console.log(res);
+    });
+  }, []);
+
+  React.useEffect(() => {
     const token = localStorage.getItem("token");
     const path = window.location.pathname;
     axios
-      .get(`http://localhost:5000/auth/validate/${token}`)
+      .get(`https://resumedps.aboutrohit.in/auth/validate/${token}`)
       .then((res) => {
         if (res.data.isLogged) {
           setUserDetails(res.data.email, res.data.userName);

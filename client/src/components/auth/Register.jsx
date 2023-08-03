@@ -61,7 +61,7 @@ export default function Register() {
           if (User.password.length >= 6) {
             if (User.password === User.confirmPassword) {
               axios
-                .post("http://localhost:5000/auth/sendVotp", User)
+                .post("https://resumedps.aboutrohit.in/auth/sendVotp", User)
                 .then((res) => {
                   setAlert(res.data.message);
                   if (res.data.success) {
@@ -106,7 +106,7 @@ export default function Register() {
 
   function Register() {
     axios
-      .post("http://localhost:5000/auth/register", User)
+      .post("https://resumedps.aboutrohit.in/auth/register", User)
       .then((res) => {
         setAlert(res.data.message);
         if (res.data.success) {

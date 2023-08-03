@@ -7,7 +7,7 @@ export default function PCard({ Project }) {
   const navigate = useNavigate();
 
   const deleteProject = () => {
-    axios.delete(`http://localhost:5000/project/delete/${Project._id}`)
+    axios.delete(`https://resumedps.aboutrohit.in/project/delete/${Project._id}`)
       .then(res => {
         Toast.fire({
           icon: 'success',
