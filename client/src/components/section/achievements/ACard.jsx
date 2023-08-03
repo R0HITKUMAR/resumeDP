@@ -6,7 +6,7 @@ import Toast from "../../dashboard/SweetAlert";
 export default function ACard({ Achievement }) {
     const navigate = useNavigate();
     const deleteAchievement = () => {
-        axios.delete(`https://resumedps.aboutrohit.in/achievement/delete/${Achievement._id}`)
+        axios.delete(`http://localhost:5000/achievement/delete/${Achievement._id}`)
             .then(res => {
                 Toast.fire({
                     icon: 'success',

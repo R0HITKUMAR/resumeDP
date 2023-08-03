@@ -31,7 +31,7 @@ export default function CForm(props) {
       Cdata.issued_on !== "" 
     ) {
       axios
-        .post("https://resumedps.aboutrohit.in/certificate/add", Cdata)
+        .post("http://localhost:5000/certificate/add", Cdata)
         .then((res) => {
           Toast.fire({
             icon: "success",

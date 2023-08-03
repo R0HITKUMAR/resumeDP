@@ -16,7 +16,6 @@ function Login(req, res) {
         if (isCorrect) {
           const payload = {
             id: dbUser._id,
-            userName: dbUser.userName,
             email: dbUser.email,
           };
           jwt.sign(
@@ -28,8 +27,7 @@ function Login(req, res) {
               return res.send({
                 message: "Logged In Successfully",
                 token: token,
-                email: req.body.email,
-                userName: payload.userName,
+                email: req.body.email
               });
             }
           );
@@ -40,19 +38,4 @@ function Login(req, res) {
   });
 }
 
-function VerifyUserName(req, res) {
-  const userName = req.params.userName;
-  User.findOne({ userName: userName }).then((dbUser) => {
-    if (dbUser) {
-      // Send Json Response
-      return res.send(
-        { message: "Username Already Exists" },
-        { email: dbUser.email }
-      );
-    } else if (!dbUser) {
-      return res.send({ message: "Username Available" });
-    }
-  });
-}
-
-export { Login, VerifyUserName };
+export { Login};

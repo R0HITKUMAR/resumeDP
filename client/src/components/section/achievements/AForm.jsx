@@ -18,7 +18,7 @@ export default function AForm(props) {
     }
 
     const addAchievement = () => {
-        axios.post(`https://resumedps.aboutrohit.in/achievement/add`, Adata)
+        axios.post(`http://localhost:5000/achievement/add`, Adata)
             .then(res => {
                 Toast.fire({
                     icon: 'success',

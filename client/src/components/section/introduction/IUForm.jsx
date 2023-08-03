@@ -9,7 +9,7 @@ export default function ICard(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/introduction/retrieve/${props.email}`)
+      .get(`http://localhost:5000/introduction/retrieve/${props.email}`)
       .then((res) => {
         setIntro(res.data);
         if (res.data.name === undefined) {
@@ -28,7 +28,7 @@ export default function ICard(props) {
 
   const updateSkills = () => {
     axios
-      .put(`https://resumedps.aboutrohit.in/introduction/update/${Intro._id}`, Intro)
+      .put(`http://localhost:5000/introduction/update/${Intro._id}`, Intro)
       .then((res) => {
         Toast.fire({
           icon: "success",

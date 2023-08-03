@@ -15,7 +15,6 @@ export default function Register() {
   const [step, setStep] = React.useState(1);
   const [serverOTP, setserverOTP] = React.useState("");
   const [User, setUser] = React.useState({
-    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -36,7 +35,7 @@ export default function Register() {
         e.target.style.borderColor = "red";
       }
     } else if (name === "password") {
-      if (value.length >= 6) {
+      if (value.length < 6) {
         e.target.style.borderColor = "red";
       } else {
         e.target.style.borderColor = "green";
@@ -47,21 +46,6 @@ export default function Register() {
       } else {
         e.target.style.borderColor = "green";
       }
-    } else if (name === "userName") {
-      axios
-        .get(`https://resumedps.aboutrohit.in/auth/validateUserName/${value}`)
-        .then((res) => {
-          if (
-            res.data.message !== "Username Already Exists" &&
-            value.length >= 6 &&
-            value.match(/^[a-zA-Z0-9]+$/)
-          ) {
-            setUserNameValid(true);
-            e.target.style.borderColor = "green";
-          } else {
-            e.target.style.borderColor = "red";
-          }
-        });
     }
   };
 
@@ -69,43 +53,37 @@ export default function Register() {
     e.preventDefault();
     if (checked) {
       if (
-        User.userName &&
-        User.email &&
-        User.password &&
-        User.confirmPassword
+        User.email !== "" &&
+        User.password !== "" &&
+        User.confirmPassword !== ""
       ) {
-        if (userNameValid) {
-          if (User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-            if (User.password.length >= 6) {
-              if (User.password === User.confirmPassword) {
-                axios
-                  .post("https://resumedps.aboutrohit.in/auth/sendVotp", User)
-                  .then((res) => {
-                    setAlert(res.data.message);
-                    if (res.data.success) {
-                      setserverOTP(res.data.otp);
-                      setStep(2);
-                    }
-                  })
-                  .catch((err) => {
-                    setAlert(err.response.data.message);
-                  });
-              } else {
-                setAlert("Password and Confirm Password do not match");
-              }
+        if (User.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+          if (User.password.length >= 6) {
+            if (User.password === User.confirmPassword) {
+              axios
+                .post("http://localhost:5000/auth/sendVotp", User)
+                .then((res) => {
+                  setAlert(res.data.message);
+                  if (res.data.success) {
+                    setserverOTP(res.data.otp);
+                    setStep(2);
+                  }
+                })
+                .catch((err) => {
+                  setAlert(err.response.data.message);
+                });
             } else {
-              setAlert("Password must be at least 6 characters long");
+              setAlert("Password and Confirm Password do not match");
             }
           } else {
-            setAlert("Please Enter Valid Email");
+            setAlert("Password must be at least 6 characters long");
           }
         } else {
-          setAlert(
-            "User Name must be at least 6 characters long and must contain only alphabets and numbers"
-          );
+          setAlert("Please Enter Valid Email");
+
         }
-      } else {
-        setAlert("Please fill all fields Correctly");
+      } else{
+        setAlert("Please fill all the fields");
       }
     } else {
       setAlert("Please Accept the Terms and Conditions");
@@ -128,21 +106,20 @@ export default function Register() {
 
   function Register() {
     axios
-      .post("https://resumedps.aboutrohit.in/auth/register", User)
+      .post("http://localhost:5000/auth/register", User)
       .then((res) => {
         setAlert(res.data.message);
         if (res.data.success) {
           setUser({
-            userName: "",
             email: "",
             password: "",
             confirmPassword: "",
             otp: "",
           });
-          setStep(1);
+          setStep(3);
+          setAlert("Account Created Successfully");
         } else if (!res.data.success) {
           setUser({
-            userName: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -162,24 +139,12 @@ export default function Register() {
         <div className="container">
           <div className="form-content">
             <div className="form">
+
               <h2 className="form-title">Sign up</h2>
               <p className="form-alert">&nbsp;{alert}</p>
               <form className="main-form">
                 {step === 1 && (
                   <>
-                    <div className="form-group">
-                      <label>
-                        <i className="zmdi zmdi-account material-icons-name" />
-                      </label>
-                      <input
-                        type="text"
-                        name="userName"
-                        onChange={handleChange}
-                        value={User.userName}
-                        placeholder="Enter User Name"
-                      />
-                    </div>
-                    <div className="form-text text-muted"></div>
                     <div className="form-group">
                       <label>
                         <i className="zmdi zmdi-email" />
@@ -263,20 +228,6 @@ export default function Register() {
                   <>
                     <div className="form-group">
                       <label>
-                        <i className="zmdi zmdi-account material-icons-name" />
-                      </label>
-                      <input
-                        type="text"
-                        name="userName"
-                        onChange={handleChange}
-                        value={User.userName}
-                        placeholder="Enter User Name"
-                        disabled={true}
-                      />
-                    </div>
-                    <div className="form-text text-muted"></div>
-                    <div className="form-group">
-                      <label>
                         <i className="zmdi zmdi-email" />
                       </label>
                       <input
@@ -305,6 +256,15 @@ export default function Register() {
                     <div className="form-button text-center">
                       <button onClick={validateOTP} className="main-btn">
                         Verify OTP
+                      </button>
+                    </div>
+                  </>
+                )}
+                {step === 3 && (
+                  <>
+                    <div className="form-button text-center">
+                      <button onClick={() => navigate("/login")} className="main-btn">
+                        Proceed for Login
                       </button>
                     </div>
                   </>

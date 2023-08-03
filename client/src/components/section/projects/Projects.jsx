@@ -15,7 +15,7 @@ export default function Projects(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/project/retrieveAll/${props.email}`)
+      .get(`http://localhost:5000/project/retrieveAll/${props.email}`)
       .then((res) => {
         setProjects(res.data);
         setIsLoading(false);

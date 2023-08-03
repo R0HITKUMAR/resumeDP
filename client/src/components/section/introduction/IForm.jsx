@@ -31,7 +31,7 @@ export default function ICard(props) {
     }
 
     const addIntroduction = () => {
-        axios.post("https://resumedps.aboutrohit.in/introduction/add", Intro)
+        axios.post("http://localhost:5000/introduction/add", Intro)
             .then(res => {
                 Toast.fire({
                     icon: 'success',

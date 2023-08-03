@@ -12,7 +12,7 @@ export default function Skills(props) {
 
   React.useEffect(() => {
     axios
-      .get(`https://resumedps.aboutrohit.in/skill/retrieve/${props.email}`)
+      .get(`http://localhost:5000/skill/retrieve/${props.email}`)
       .then((res) => {
         setskills(res.data);
         if (res.data.technical === undefined) {

@@ -23,7 +23,7 @@ export default function SForm(props) {
 
   const addSkills = () => {
     axios
-      .post("https://resumedps.aboutrohit.in/skill/add", skill)
+      .post("http://localhost:5000/skill/add", skill)
       .then((res) => {
         Toast.fire({
           icon: "success",
