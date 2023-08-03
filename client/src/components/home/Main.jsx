@@ -41,7 +41,7 @@ export default function Main({ setUser }) {
         </p>
         <div className="footer bottom-fixed bottom-0 text-center text-light mt-3">
           <p className="m-0" style={{ fontFamily: "monospace" }}>
-            Developed, Made and Hosted with ❤️ by{" "}
+            Developed, Maintained and Hosted with ❤️ by{" "}
             <a
               href="https://aboutrohit.in"
               style={{ textDecoration: "none", color: "white" }}
