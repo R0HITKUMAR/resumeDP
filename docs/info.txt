@@ -1,0 +1,16 @@
+The Resume Builder Website is a dynamic platform designed to empower users in creating professional resumes with ease. It offers a user-friendly interface and supports various resume sections including Certifications, Projects, Skills, Achievements, Education, and Experience, allowing individuals to showcase their qualifications effectively.
+
+Key Features:
+• Customizable Resume Sections: Users can personalize their resumes by adding and arranging sections such as Certifications, Projects, Skills, Achievements, Education, and Experience.
+• Intuitive UI Dashboard: The platform incorporates a visually appealing and intuitive dashboard for seamless navigation and management of resume content.
+• Secure User Authentication: Utilizes secure login functionality powered by MongoDB, ensuring data privacy and authentication.
+• Integrated Technologies: Combines frontend technologies including HTML, CSS, Bootstrap, JavaScript (with jQuery), and ReactJS with backend technologies such as Node.js and Express.js, leveraging MongoDB for robust database support.
+
+Technological Stack:
+The project leverages a comprehensive stack of technologies:
+• Frontend: HTML, CSS, Bootstrap, JavaScript (with jQuery), ReactJS
+• Backend: Node.js, Express.js
+• Database: MongoDB
+• Hosting and Deployment: Vercel (Frontend), Render (Backend), GoDaddy (Domain)
+
+This Resume Builder Website represents an innovative solution for crafting professional resumes, incorporating modern technologies and a user-centric design approach. It empowers users to showcase their skills and experiences effectively in today's competitive job market.
