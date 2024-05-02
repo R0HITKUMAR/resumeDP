@@ -24,7 +24,7 @@ transporter.use("compile", hbs(handlebarOptions));
 
 function sendOTPMail(email, otp, reason, sub) {
   var mailOptions = {
-    from: "ResumeDP <no-reply.resumedp@hotmail.com>",
+    from: "ResumeDP <support@aboutrohit.in>",
     to: email,
     subject: sub,
     template: "otp",
@@ -45,7 +45,7 @@ function sendOTPMail(email, otp, reason, sub) {
 
 function sendWelcomeMail(email) {
   var mailOptions = {
-    from: "ResumeDP <no-reply.resumedp@hotmail.com>",
+    from: "ResumeDP <support@aboutrohit.in>",
     to: email,
     subject: "Welcome to Resumee!",
     template: "welcome",
